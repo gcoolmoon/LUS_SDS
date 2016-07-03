@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>          
+        <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css"></link>
+        <style>
+body {
+    font: 12px arial;
+    color: #222;
+    text-align: center;
+    padding: 35px;
+}
+ 
+form,p,span {
+    margin: 0;
+    padding: 0;
+}
+ 
+input {
+    font: 12px arial;
+}
+ 
+a {
+    color: #0000FF;
+    text-decoration: none;
+}
+ 
+a:hover {
+    text-decoration: underline;
+}
+ 
+#wrapper,#loginform {
+    margin: 0 auto;
+    padding-bottom: 25px;
+    background: #EBF4FB;
+    width: 504px;
+    border: 1px solid #ACD8F0;
+}
+ 
+#loginform {
+    padding-top: 18px;
+}
+ 
+#loginform p {
+    margin: 5px;
+}
+ 
+#chatbox {
+    text-align: left;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    padding: 10px;
+    background: #fff;
+    height: 270px;
+    width: 430px;
+    border: 1px solid #ACD8F0;
+    overflow: auto;
+}
+ 
+#usermsg {
+    width: 395px;
+    border: 1px solid #ACD8F0;
+}
+ 
+#submit {
+    width: 60px;
+}
+ 
+.error {
+    color: #ff0000;
+}
+ 
+#menu {
+    padding: 12.5px 25px 12.5px 25px;
+}
+ 
+.welcome {
+    float: left;
+}
+ 
+.logout {
+    float: right;
+}
+ 
+.msgln {
+    margin: 0 0 2px 0;
+}
+.black_overlay{
+	display: none;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	z-index:1001;
+	-moz-opacity: 0.8;
+	opacity:.80;
+	filter: alpha(opacity=80);
+}
+
+.white_content {
+	display: none;
+	position: absolute;
+	top: 25%;
+	left: 25%;
+	width: 50%;
+	height: 50%;
+	padding: 16px;
+	border: 16px solid orange;
+	background-color: white;
+	z-index:1002;
+	overflow: auto;
+}
+</style>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="wrapper">
+        <div id="menu">
+            <p class="welcome">
+                Welcome, <b><?php echo $_SESSION['name']; ?></b>
+            </p>
+            <p class="logout">
+                <a id="exit" href="#">Exit Chat</a>
+            </p>
+            <div style="clear: both"></div>
+        </div>
+        <div id="chatbox">
+            <?php
+        if (file_exists ( "log.html" ) && filesize ( "log.html" ) > 0) {
+            $handle = fopen ( "log.html", "r" );
+            $contents = fread ( $handle, filesize ( "log.html" ) );
+            fclose ( $handle );
+           
+            echo $contents;
+        }
+        ?>
+        </div>
+        </div>
+        <div>TODO write content</div>
+    </body>
+</html>

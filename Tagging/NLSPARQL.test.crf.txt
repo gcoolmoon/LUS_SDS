@@ -1,0 +1,6 @@
+did	VBD
+this	DT
+movie	NN
+win	VB
+any	DT
+awards	NNS
